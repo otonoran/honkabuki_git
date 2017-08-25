@@ -1,0 +1,24 @@
+<!-- <h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p> -->
+<ul>  
+    <li>
+      <%= link_to user_path(@user) do %>
+        <div class="text">投稿数</div>
+        <div class="num"><%= @user.posts.count %></div>
+      <% end %>
+    </li>
+</ul>
+
+
+<% @user.posts.each do |post| %>
+    <h4 class="user">
+        <span class="user-name">
+          <%= link_to post.user.email, user_path(post.user) %>
+        </span>
+    <span class="user-id"><%= post.user.email %></span>
+    </h4>
+    <div class="post-body">
+        <%= post.body %>
+    </div>
+
+<% end %>
